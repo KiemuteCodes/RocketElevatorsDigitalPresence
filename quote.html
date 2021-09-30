@@ -6,7 +6,7 @@
 		<title>Rocket Elevators - Commercial Landing Page</title>
 		<meta name="description" content="" />
 		<meta name="Author" content="Dorin Grigoras [www.stepofweb.com]" />
-		<script src ="../RocketElevatorsDigitalPresence/quote.js"></script>
+		
 
 		<!-- mobile settings -->
 		<meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
@@ -144,78 +144,160 @@
 			<section id="home">
 						
 <!-- New Quote Starts with Building Type -->
-	<form>
-		<div id="buildingType" class="container" class="row">
-			<div class="col-md-8">
-				<h1>Request a Quote	</h1>
-				<label for="buildingType">Select Building Type*</label>
-				<select name="building" id="building-select">
-					<option value="residential">Residential</option>
-					<option value="commercial">Commercial</option>
-					<option value="corporate">Corporate</option>
-					<option value="hybrid">Hybrid</option>
-				</select>
-			</div>
-		</div>	
-		
-			<label for = "numberOfApartments">Number of Apartments:</label><br>
-			<input type="number" min="0" name="numberOfApartments">
-			<br>
-		
-			<label for = "numberOfFloors">Number of Floors(Excluding basements):</label><br>
-			 <input type="number" min="0" name="numberOfFloors">
-			<br>
-			<label for = "numberOfBasements">Number of Basements:</label><br> 
-			<input type="number" min="0" name="numberOfBasements">
-			<br>
-
-
-			<label for = "numberOfBusinesses">Number of Businesses:</label><br>
-			<input type="number" min="0" name="numberOfBusinesses">
-			<br>
-			
-			<label for = "numberOfParkingSpaces">Number of Parking Spaces</label><br>
-			<input type = "number" min="0" name="numberOfParkingSpaces">
-			<br>
-			<label for = "numberOfElevatorCages"> Number of Elevator Cages</label><br>
-            <input type = "number" min="0" name="numberOfElevators">
-            <br>
+<section id="quote" class="section-quote"> 
+	<!-- <div id="myBtnContainer"> 
+	<button class="btnQ active" onclick="filterSelection('all')">Show all</button> 
+	<button class="btnQ" onclick="filterSelection('residential')">Residential</button> 
+	<button class="btnQ" onclick="filterSelection('commercial')">Commercial</button> 
+	<button class="btnQ" onclick="filterSelection('hybrid')">Hybrid</button> 
+	</div> --> 
 	
-			<label for = "numberOfTenantCompanies">Number of Seperate Tenant Companies:</label><br>
-			<input type="number" min="0" name="numberOfSeperateTenantCompanies">
-			<br>
-			
-			<label for = "maximumOccupantsPerFloor"> Maximum Occupants Per Floor</label><br>
-            <input type = "number" min="0" name="maximumNumberOfOccupants">
-            <br>
+	<div class="col-md-4"> 
+	<label for="Building_Type">Please Select Building Type</label> <br>
+	<select id="type" class="form-control pointer"; name="Type[building]";> 
+	<option value="Select">--- Select ---</option> 
+	<option id="residential" onchange="calculate()" value="Residential">Residential</option>
+	<option onchange="calculate()" value="Commercial">Commercial</option>
+	<option id="hybrid" onchange="calculate()" value="Hybrid">Hybrid</option> 
+	<option id="corporate" onchange="calculate()" value="Corporate">Corporate</option>  
+	 
+	</select> 
+	</div> 
+	<br>
+	<br>
+	<!--radio button for product line--> 
+	<div class="container" id="productLine"> 
+	<productLine>Our Product Lines:-</productLine> 
+	<br>
+	<br>
+	<label for="standard">Standard</label> 
+	<input onchange="calculate()" type="radio" name="size" id="standard" value="7565"> 
+	<label for="premium">Premium</label> 
+	<input onchange="calculate()" type="radio" name="size" id="premium" value="12345"> 
+	<label for="excelium">Excelium</label> 
+	<input onchange="calculate()" type="radio" name="size" id="excelium" value="15400"> 
+	</div> 
+	<!--/radio button for product line--> 
 	
-			<label for = "numberOfHoursOfActivity"> Number of Hours of Activity</label><br>
-            <input type =  "number" businessHours="parking"> 
-            <br>
-		
+	
+	<!--Residential Q--> 
+	<div class="input1" id="Residential"> 
+	<div class="input2" id="number-of-apartments"> 
+	<label for="contact:name">Number of Apartments *</label> 
+	<input required type="number" onchange="calculate()" class="form-control" name="contact[name][required]" id="residentialQuote1"> 
+	</div> 
+	<div class="input2" id="number-of-floors"> 
+	<label for="contact:name">Number of Floors *</label> 
+	<input required type="number" onchange="calculate()" class="form-control" name="contact[name][required]" id="residentialQuote2"> 
+	</div> 
+	<div class="input2" id="number-of-basements"> 
+	<label for="contact:name">Number of Basements *</label> 
+	<input required type="number" onchange="calculate()" type="button" class="form-control" name="contact[name][required]" id="residentialQ3"> 
+	</div> 
+	</div> 
+	<!--/Residential Q--> 
 
-		<div id="productLines" class="row">
-				<input type="radio" id="productLine1" class="col-md-4">
-			<label for="productLine1">Standard</label><br>	  
-			<input type="radio" id="productLine2">
-			<label for="productLine2">Premium</label><br>
-			<input type="radio" id="productLine3">
-			<label for="productLine3">Excelium</label><br>
-			
-		</div>
-		<div id="total" class="row">
-			<label for="elevatorTotal">Total No of Elevators</label>
-			<input type="text" id="total" name="total" readonly><br>
-			<label for="unitPriceElevator">Unit price of Elevators</label>
-			<input type="text" id="unitPrice" name="unitPrice" readonly><br>
-			<label for="elevatorTotalPrice">Total Price of Elevators</label>
-			<input type="text" id="elevatorTotalPrice" name="elevatorTotalPrice" readonly><br>
-			<label for="installationFees">Installation Fees</label>
-			<input type="text" id="installationFees" name="installationFees" readonly><br>
-			<label for="finalPrice">Final Price of Elevators</label>
-			<input type="text" id="finalPrice" name="finalPrice" readonly><br>
-		</div>
-	</form>
+	<!--Commercial Quote--> 
+	<div class="input1" id="Commercial"> 
+		<div class="" id="number-of-companies"> 
+		<label for="commercial">Number of Distinct Businesses *</label> 
+		<input required type="number" type="button" class="form-control" id="commercialQuote1"> 
+		</div> 
+		<div class="" id="number-of-floors"> 
+		<label for="commercial2">Number of Floors *</label> 
+		<input required type="number" type="button" class="form-control" id="commercialQuote2"> 
+		</div> 
+		<div class="" id="number-of-basements"> 
+		<label for="commercial3">Number of Basements *</label> 
+		<input required type="number" value="" class="form-control" name="contact[name][required]" id="commercialQuote3"> 
+		</div> 
+		<div class="" id="number-of-parking-spots"> 
+		<label for="commercial4">Number of Parking Spaces Available *</label> 
+		<input required type="number" value="" class="form-control" name="contact[name][required]" id="commercialQuote4"> 
+		</div> 
+		<div class="" id="number-of-elevators"> 
+		<label for="commercial5">Number of Elevators Required *</label> 
+		<input required type="number" type="button" onchange="calculate()" class="form-control" id="commercialQuote5"> 
+		</div> 
+		</div> 
+		<!--/Commercial Q--> 
+		
+	
+	<!--Corporate Q--> 
+	<div class="input1" id="Corporate"> 
+	<div class="input2" id="number-of-corporations"> 
+	<label for="contact:name">Number of Separate Companies *</label> 
+	<input required type="number" type="button" class="form-control" id="corporateQuote1"> 
+	</div> 
+	<div class="input2" id="number-of-floors"> 
+	<label for="contact:name">Number of Floors *</label> 
+	<input required type="number" type="button" onchange="calculate();" class="form-control" id="corporateQuote2"> 
+	</div> 
+	<div class="input2" id="number-of-basements"> 
+	<label for="contact:name">Number of Basements *</label> 
+	<input required type="number" type="button" onchange="calculate();" class="form-control" id="corporateQuote3"> 
+	</div> 
+	<div class="input2" id="number-of-parking-spots"> 
+	<label for="contact:name">Number of Parking Spaces Available *</label> 
+	<input required type="number" type="button" class="form-control" id="corporateQuote4"> 
+	</div> 
+	<div class="input2" id="maximum-occupancy"> 
+	<label for="contact:name">Maximum Number of Occupants Per Floor *</label> 
+	<input required type="number" type="button" onchange="calculate();" class="form-control" id="corporateQuote5"> 
+	</div> 
+	</div> 
+	<!--/Corporate Q--> 
+	
+	<!--Hybrid Q--> 
+	<div class="input1" id="Hybrid"> 
+	<div class="" id="number-of-companies"> 
+	<label for="contact:name">Number of Distinct Businesses *</label> 
+	<input required type="number" type="button" class="form-control" id="hybridQuote1"> 
+	</div> 
+	<div class="" id="number-of-floors"> 
+	<label for="contact:name">Number of Floors *</label> 
+	<input required type="number" type="button" onchange="calculate();" class="form-control" id="hybridQuote2"> 
+	</div> 
+	<div class="" id="number-of-basements"> 
+	<label for="contact:name">Number of Basements *</label> 
+	<input required type="number" type="button" onchange="calculate();" class="form-control" id="hybridQuote3"> 
+	</div> 
+	<div class="" id="number-of-parking-spots"> 
+	<label for="contact:name">Number of Parking Spaces Available *</label> 
+	<input required type="number" type="button" class="form-control" id="hybridQuote4"> 
+	</div> 
+	<div class="" id="maximum-occupancy"> 
+	<label for="contact:name">Maximum Number of Occupants Per Floor *</label> 
+	<input required type="number" type="button" onchange="calculate();" class="form-control" id="hybridQuote5"> 
+	</div> 
+	<div class="" id="business-hours"> 
+	<label for="contact:name">Number of Hours of Activity (the maximum being  24) *</label> 
+	<input required type="number" type="button" class="form-control" id="hybridQuote6"> 
+	</div> 
+	</div> 
+	<!--/Hybrid Q--> 
+	
+	<!--prix--> 
+	<div class="containerP"> 
+	<section class="container"¬ style="display: prix"> 
+	<label><strong>Number of Elevators:</strong></label> 
+	<input style="display: block" required type="number" id="elevatorNeeded"¬ disabled> 
+	
+	<label><strong>Price Per Elevator:</strong></label> 
+	<input style="display: block" required type="number" id="EachElevatorPrice"¬ disabled> 
+	
+	<label><strong>Elevator Cost:</strong></label> 
+	<input style="display: block" required type="number" id="cage" disabled> 
+	
+	<label><strong>Installation Cost:</strong></label> 
+	<input style="display: block" required type="number" id="install" disabled> 
+	
+	<label><strong>Total Price:</strong></label> 
+	<input style="display: block" required type="number" id="bigtotal"¬ disabled> 
+	</section> 
+	</div> 
+	<!--/prix--> 
+	</section> 
 
     		<!-- FOOTER -->
 		<footer id="footer">
@@ -301,6 +383,7 @@
 		<script src="assets/plugins/jquery/jquery-3.3.1.min.js"></script>
 
 		<script src="assets/js/scripts.js"></script>
+		<script src ="quote.js"></script>
 		
 		<!-- STYLESWITCHER - REMOVE -->
 		<script async src="demo_files/styleswitcher/styleswitcher.js"></script>
